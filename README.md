@@ -11,19 +11,3 @@ Os conteúdos abordados aqui são:
 03. **...**
 
 *EM CONSTRUÇÃO.*
-
----
-
-# EN: Revisiting JavaScript for React Native
-
-These are my specific notes on Javascript from a course I'm taking on React Native. As many people know, to work with React Native you gotta have very neat fundamentals on Javascript. That's why I took these notes.
-
-Useful to keep track of important points and as a reminder.
-
-The contents are:
-
-01. **JAVASCRIPT FUNDAMENTALS**
-02. **FUNCTIONS**
-03. **...**
-
-*UNDER CONSTRUCTION.*
