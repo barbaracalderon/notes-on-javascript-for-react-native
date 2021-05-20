@@ -14,11 +14,13 @@
 
 O nome que você dá para as variáveis, funções, objetos, etc. é muito importante. Ele deve **refletir** o que você está fazendo. Vale a pena gastar um tempo pensando no nome das coisas.
 
-```
+
+```javascript
 var a = 3
 let b = 4
 const c = 5
 ```
+
 
 VAR e LET declaram **variáveis**.
 
@@ -38,7 +40,8 @@ Nesse caso, **a função exerce o papel de uma classe.**
 Já foi introduzido o termo "class" mas, na prática, o próprio "class" é uma função (por baixo dos panos). As funções têm atributos e comportamentos e podem ser instanciadas. Ou seja, aqui a função é classe.
 
 ## EXEMPLO 01 - **Instanciando uma função Object (criando um objeto).**
-```
+
+```javascript
 console.log(typeof Object)
 console.log(typeof new Object)
 
@@ -49,7 +52,7 @@ typeof new Object -> é um objeto. Eu instanciei um objeto a partir da função 
 ```
 ## EXEMPLO 02 - **Instanciando uma função que eu criei (criando um objeto).**
 
-```
+```javascript
 const Cliente = function() {}
 console.log(typeof Cliente)
 console.log(typeof new Cliente)
@@ -62,7 +65,7 @@ typeof new Cliente -> é um objeto. Eu instanciei esse objeto a partir da funç�
 ```
 ## EXEMPLO 03 - **Criando uma classe (instanciando uma função) e (para instanciar um objeto).**
 
-```
+```javascript
 class Produto {}
 console.log(typeof Produto)
 console.log(typeof new Produto)
@@ -81,7 +84,7 @@ Chamado também de: nome/valor, par/valor, chave/valor.
 
 Em um código de Javascript, vemos por todos os lados pares de nome/valor. Esse nome e valor podem ser conectados por ```=``` ou ```:``` conforme nos exemplos abaixo.
 
-```
+```javascript
 const saudacao = 'Opa!'        \\ contexto léxico 01 (escopo)
 
 function exec() {
@@ -113,7 +116,7 @@ Aqui tratamos do âmbito do objeto. Na próxima seção, no âmbito do array.
 
 ## EXEMPLO 01 - **no âmbito do objeto.**
 
-```
+```javascript
 const pessoa = {
     nome: 'Ana',
     idade: 5,
@@ -128,7 +131,7 @@ console.log(nome, idade)            \\ > Ana 5
 ```
 No exemplo de cima, eu tenho um objeto chamado pessoa com alguns atributos (nome, idade, endereco). Eu utilizo o operador destructuring para tirar do objeto pessoa, os atributos "nome" e "idade".
 
-```
+```javascript
 const { nome, pessoa } = pessoa
 
 console.log(nome, pessoa)       \\ > Ana 5
@@ -139,7 +142,7 @@ O console.log vai imprimir o que está contido em "nome" e "idade": respectivame
 
 Agora, eu posso dar um novo nome a esses atributos pra usar no meu código. Em vez de fazer como acima, eu faço conforme abaixo. Veja abaixo.
 
-```
+```javascript
 const { nome: n, idade: i } = pessoa
 
 console.log(n, i)       \\ > Ana 5
@@ -151,7 +154,7 @@ E se eu tirar um atributo que não existe no objeto?
 
 O normal é retornar undefined. A não ser que eu deixe "setado" no caso de vir undefined. Vamos supor que queremos extrair o atributo "sobrenome" (não existe) e o atributo "bemHumorada" (não existe mas vou setar).
 
-```
+```javascript
 const { sobrenome, bemHumorada = true } = pessoa
 
 console.log(sobrenome, bemHumorada)     \\ > Undefined true
@@ -161,7 +164,7 @@ console.log(sobrenome, bemHumorada)     \\ > Undefined true
 
 Ainda do exemplo do objeto pessoa de cima, vamos acessar os atributos de logradouro e número.
 
-```
+```javascript
 const { endereco: { logradouro, numero, cep } } = pessoa
 
 console.log(logradouro, numero, cep)    \\ > Rua ABC 1000 undefined
@@ -175,13 +178,13 @@ Pegar elementos de dentro de um array.
 ## EXEMPLO 02 - **no âmbito do array.**
 
 Criei uma lista com um único elemento "a" que vai receber o valor 10 dentro da lista. 
-```
+```javascript
 const [a] = 10
 
 console.log(a)              \\ > 10
 ```
 Aqui estou atribuindo valores ao meu array. 
-```
+```javascript
 const [n1, , n3, , n5, n6=10] = [10, 7, 9, 8]]
 
 console.log(n1, n3, n5, n6)     \\ > 10 9 undefined 0
@@ -190,7 +193,7 @@ Veja que não existe n2, n4 - eu pulei eles. Seria assim n2=7 e n4=8. Então só
 
 Também posso fazer um array de arrays.
 
-```
+```javascript
 const [, [, nota]] = [[, 8, 8], [9, 6, 8]]
 
 console.log(nota)         \\ > 6
@@ -201,7 +204,7 @@ console.log(nota)         \\ > 6
 
 Vou criar uma função rand() que vai me retornar um número aleatório.
 
-```
+```javascript
 function rand( { min = 0, max = 1000} ) 
 ```
 
@@ -211,7 +214,7 @@ Significa que eu passei como parâmetro da função rand, um operador destructur
 
 Continuando.
 
-```
+```javascript
 function rand( { min = 0, max = 1000} ) {
     const valor = Math.random() * (max - min) + min
     return Math.floor(valor)
@@ -231,7 +234,7 @@ Depois, eu criei um objeto (objetos tem chaves {}) com atributos max e min. Ent�
 
 Fazer conforme o destructuring #03 porém agora usando array no lugar de objeto.
 
-```
+```javascript
 function rand([min = 0, max = 1000]) {
     if (min > max) [min, max] = [max, min]
     const valor = Math.random() * (max - min) + min
