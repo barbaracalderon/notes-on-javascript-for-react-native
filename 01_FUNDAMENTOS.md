@@ -85,10 +85,10 @@ Chamado também de: nome/valor, par/valor, chave/valor.
 Em um código de Javascript, vemos por todos os lados pares de nome/valor. Esse nome e valor podem ser conectados por ```=``` ou ```:``` conforme nos exemplos abaixo.
 
 ```javascript
-const saudacao = 'Opa!'        \\ contexto léxico 01 (escopo)
+const saudacao = 'Opa!'        // contexto léxico 01 (escopo)
 
 function exec() {
-    const saudacao = 'E aí!'    \\ contexto léxico 02 (escopo)
+    const saudacao = 'E aí!'    // contexto léxico 02 (escopo)
     return saudacao
 }
 
@@ -126,15 +126,15 @@ const pessoa = {
     }
 }
 
-const { nome, pessoa } = pessoa     \\ Operador Destructuring
-console.log(nome, idade)            \\ > Ana 5
+const { nome, pessoa } = pessoa     // Operador Destructuring
+console.log(nome, idade)            // > Ana 5
 ```
 No exemplo de cima, eu tenho um objeto chamado pessoa com alguns atributos (nome, idade, endereco). Eu utilizo o operador destructuring para tirar do objeto pessoa, os atributos "nome" e "idade".
 
 ```javascript
 const { nome, pessoa } = pessoa
 
-console.log(nome, pessoa)       \\ > Ana 5
+console.log(nome, pessoa)       // > Ana 5
 ```
 As chaves aqui indicam o operador Destructuring. Essa operação diz o seguinte: 'usando esse operador, eu quero os atributos "nome" e "pessoa" que vão ser retirados do objeto "pessoa".'
 
@@ -145,7 +145,7 @@ Agora, eu posso dar um novo nome a esses atributos pra usar no meu código. Em v
 ```javascript
 const { nome: n, idade: i } = pessoa
 
-console.log(n, i)       \\ > Ana 5
+console.log(n, i)       // > Ana 5
 ```
 O console.log vai imprimir o que está contido em "n" e "i": respectivamente, 'Ana' e '5'. Assim como acima.
 
@@ -157,7 +157,7 @@ O normal é retornar undefined. A não ser que eu deixe "setado" no caso de vir 
 ```javascript
 const { sobrenome, bemHumorada = true } = pessoa
 
-console.log(sobrenome, bemHumorada)     \\ > Undefined true
+console.log(sobrenome, bemHumorada)     // > Undefined true
 ```
 
 ## Atributo aninhado (garantir o caminho até o atributo)
@@ -167,7 +167,7 @@ Ainda do exemplo do objeto pessoa de cima, vamos acessar os atributos de logrado
 ```javascript
 const { endereco: { logradouro, numero, cep } } = pessoa
 
-console.log(logradouro, numero, cep)    \\ > Rua ABC 1000 undefined
+console.log(logradouro, numero, cep)    // > Rua ABC 1000 undefined
 ```
 Cuidado para acessar atributos que não existem. Tem que ter cuidado: é preciso ter certeza que o caminho até o atributo desejado está limpo.
 
@@ -181,13 +181,13 @@ Criei uma lista com um único elemento "a" que vai receber o valor 10 dentro da 
 ```javascript
 const [a] = 10
 
-console.log(a)              \\ > 10
+console.log(a)              // > 10
 ```
 Aqui estou atribuindo valores ao meu array. 
 ```javascript
 const [n1, , n3, , n5, n6=10] = [10, 7, 9, 8]]
 
-console.log(n1, n3, n5, n6)     \\ > 10 9 undefined 0
+console.log(n1, n3, n5, n6)     // > 10 9 undefined 0
 ```
 Veja que não existe n2, n4 - eu pulei eles. Seria assim n2=7 e n4=8. Então só sobram os valores 10, 9 para colocar ali dentro do meu array.
 
@@ -196,7 +196,7 @@ Também posso fazer um array de arrays.
 ```javascript
 const [, [, nota]] = [[, 8, 8], [9, 6, 8]]
 
-console.log(nota)         \\ > 6
+console.log(nota)         // > 6
 ```
 
 ---
@@ -222,7 +222,7 @@ function rand( { min = 0, max = 1000} ) {
 
 const obj = { max: 50, min: 40 }
 
-console.log(rand(obj))          \\ > 43 *randômico
+console.log(rand(obj))          // > 43 *randômico
 ```
 
 No exemplo acima, eu desestruturei os valores 0 e 100 para poder usar no interior da minha função. Eles são o min e o max. Dentro da função, usei apenas min e max e fiz o algoritmo.
@@ -241,7 +241,7 @@ function rand([min = 0, max = 1000]) {
     return Math.floor(valor)
 }
 
-console.log(rand([50, 40]))         \\ > 43 *randômico
+console.log(rand([50, 40]))         // > 43 *randômico
 
 ```
 ---
