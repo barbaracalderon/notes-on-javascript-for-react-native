@@ -31,9 +31,9 @@ Dar preferência por usar a declaração LET no lugar de VAR. Essa é a maneira 
 ---
 # 2. Função vs. Objeto
 
-A forma de instanciar um objeto em Javascript é por uma **função**. 
+A forma de instanciar um objeto em JavaScript é por uma **função**. 
 
-Nesse caso, a função exerce o papel de uma classe.
+Nesse caso, **a função exerce o papel de uma classe.**
 
 Já foi introduzido o termo "class" mas, na prática, o próprio "class" é uma função (por baixo dos panos). As funções têm atributos e comportamentos e podem ser instanciadas. Ou seja, aqui a função é classe.
 
