@@ -47,7 +47,8 @@ console.log(typeof new Object)
 
 /*
 typeof Object -> é uma função em JS.
-typeof new Object -> é um objeto. Eu instanciei um objeto a partir da função Object.
+typeof new Object -> é um objeto. Eu instanciei
+um objeto a partir da função Object.
 */
 ```
 ## EXEMPLO 02 - **Instanciando uma função que eu criei (criando um objeto).**
@@ -60,7 +61,8 @@ console.log(typeof new Cliente)
 /*
 const Cliente -> criei minha função.
 typeof Cliente -> é uma função.
-typeof new Cliente -> é um objeto. Eu instanciei esse objeto a partir da função Cliente que eu criei.
+typeof new Cliente -> é um objeto. Eu instanciei
+esse objeto a partir da função Cliente que eu criei.
 */
 ```
 ## EXEMPLO 03 - **Criando uma classe (instanciando uma função) e (para instanciar um objeto).**
@@ -73,7 +75,9 @@ console.log(typeof new Produto)
 /*
 class Produto -> é uma função.
 typeof Produto -> é uma função.
-typeof new Produto -> é um objeto. Eu instanciei esse objeto a partir da classe que eu criei. Essa classe é uma função (na prática).
+typeof new Produto -> é um objeto. Eu instanciei
+esse objeto a partir da classe que eu criei.
+Essa classe é uma função (na prática).
 */
 ```
 
