@@ -1,4 +1,4 @@
-# PT: Revisão de JavaScript para React Native
+# Revisão de JavaScript para React Native
 
 Essas são as minhas anotações específicas sobre Javascript de um curso que estou fazendo sobre React Native. Como muitos sabem, para trabalhar com React Native, é necessário uma boa fundamentação em Javascript. Por isto esta revisão.
 
