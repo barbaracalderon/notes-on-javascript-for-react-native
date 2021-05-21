@@ -462,3 +462,32 @@ imprimirResultado(3, 4, function (x, y) {           // > -1
 imprimirResultado(3, 4, (x, y) => x * y)            // > 12
 ```
 No código acima, na última linha, temos uma arrow function como terceiro parâmetro. Neste caso, é verdadeiramente anônimo.
+
+## Função Anônima dentro de um objeto
+
+Também é possível criar uma função anônima dentro de um objeto.
+
+Exemplo abaixo.
+
+```javascript
+const pessoa = {
+    falar: function () {
+        console.log("Olá!")
+    }
+}
+
+pessoa.falar()                      // > Olá!
+```
+
+Na nova versão do JS, dá pra fazer a mesma coisa acima, mas agora retirando o ```function```.
+
+```javascript
+const pessoa = {
+    falar() {
+        console.log("Olá!")
+    }
+}
+
+pessoa.falar()                      // > Olá!
+```
+Functiona do mesmo jeito.
