@@ -319,3 +319,37 @@ Na penúltima linha, vemos que o ```this``` não se refere mais ao contexto glob
 
 Na última linha, é ```true``` que o ```this``` se refere ao objeto. Sim, porque o objeto foi amarrado ao ```this``` por meio do ```bind```. Por isso retorna verdadeiro.
 
+## THIS no contexto das Arrow Functions
+
+Será que esse ```bind``` funciona nas arrow functions? Será que eu consigo mudar o ```this``` de uma arrow function? Na próxima seção vamos ver (a resposta é não), mas primeiro uma coisinha sobre contexto nas arrow functions.
+
+Vimos anteriormente, que pela natureza da arrow function, **o ```this``` sempre se refere ao contexto no qual a função foi criada**. No caso de criarmos uma arrow function **dentro do ambiente node**, esse contexto **não é global**, ele é o contexto do **módulo**, pois todo arquivo js criado é um módulo dentro do node. O contexto do módulo é o ```module.exports```.
+
+O mais "global" que a arrow function consegue chegar é o seu próprio módulo: ele não tem a visão global do todo. 
+
+Então, quando crio uma arrow function dentro do ambiente node, ele aponta para o contexto do módulo. Não para o global.
+
+Veja.
+
+```javascript
+let comparaComThis = function (param) { 
+    console.log(this === param)
+}
+
+comparaComThis(global)                   // > true
+
+const obj = {}                           // criei o objeto 'obj'
+comparaComThis = comparaComThis.bind(obj) // Aqui o bind!
+
+comparaComThis(global)                   // > false
+comparaComThis(obj)                      // > true
+
+// Arrow Function abaixo:
+let comparaComThisArrow = param => console.log(this === param)
+
+comparaComThisArrow(global)             // > false
+comparaComThisArrow(module.exports)     // > true
+```
+Na penúltima linha, o ```this``` da arrow function não aponta para o contexto global. Por isto o resultado deu falso.
+
+Na última linha, vemos que o ```this``` da arrow function aponta para o contexto do seu módulo - **pois foi onde a arrow function foi criada**. Por isto o resultado deu verdadeiro.
