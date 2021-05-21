@@ -11,8 +11,8 @@ Essas são as minhas anotações específicas sobre Javascript de um curso que e
 
 ARQUIVOS | CONTEÚDOS
 :-------- | :----------
-01_FUNDAMENTOS.md | O básico de ```var, let, const```; função vs. objeto; par nome/valor; operadores: destructuring #01, #02, #03, #04
-02_FUNCOES.md | "This" pode variar; "This" e a função bind #01, #02; Funções arrow: #01, #02, #03; Funções anônimas, etc.
+01_FUNDAMENTOS.md | O básico de ```var, let, const```; Função vs. Objeto; Par Nome/Valor; Operador **Destructuring**
+02_FUNCOES.md | "This" pode variar; "This" e a Função Bind; **Funções Arrow**; Funções Anônimas; etc.
 Continua... | ...
 
 
