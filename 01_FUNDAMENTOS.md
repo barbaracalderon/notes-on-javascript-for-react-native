@@ -130,33 +130,33 @@ const pessoa = {
     }
 }
 
-const { nome, pessoa } = pessoa     // Operador Destructuring
+const { nome, idade } = pessoa     // Operador Destructuring
 console.log(nome, idade)            // > Ana 5
 ```
-No exemplo de cima, eu tenho um objeto chamado pessoa com alguns atributos (nome, idade, endereco). Eu utilizo o operador destructuring para tirar do objeto pessoa, os atributos "nome" e "idade".
+No exemplo de cima, eu tenho um objeto chamado pessoa com alguns atributos: ```nome, idade, endereco```. Eu utilizo o operador destructuring para tirar do objeto pessoa, os atributos "nome" e "idade".
 
 ```javascript
-const { nome, pessoa } = pessoa
+const { nome, idade } = pessoa
 
-console.log(nome, pessoa)       // > Ana 5
+console.log(nome, idade)       // > Ana 5
 ```
-As chaves aqui indicam o operador Destructuring. Essa operação diz o seguinte: 'usando esse operador, eu quero os atributos "nome" e "pessoa" que vão ser retirados do objeto "pessoa".'
+As chaves aqui indicam o operador Destructuring. Essa operação diz o seguinte: *usando esse operador, eu quero os atributos "nome" e "idade" que vão ser retirados do objeto "pessoa".*
 
-O console.log vai imprimir o que está contido em "nome" e "idade": respectivamente, 'Ana' e '5'.
+O ```console.log``` vai imprimir o que está contido em "nome" e "idade": respectivamente, 'Ana' e '5'.
 
-Agora, eu posso dar um novo nome a esses atributos pra usar no meu código. Em vez de fazer como acima, eu faço conforme abaixo. Veja abaixo.
+Agora, eu posso dar **um novo nome a esses atributos pra usar no meu código**. Em vez de fazer como acima, eu faço conforme abaixo. Veja abaixo.
 
 ```javascript
 const { nome: n, idade: i } = pessoa
 
 console.log(n, i)       // > Ana 5
 ```
-O console.log vai imprimir o que está contido em "n" e "i": respectivamente, 'Ana' e '5'. Assim como acima.
+O ```console.log``` vai imprimir o que está contido em "n" e "i": respectivamente, 'Ana' e '5'. Assim como acima.
 
 ## Atributo não existe (undefined)
-E se eu tirar um atributo que não existe no objeto?
+**E se eu tirar um atributo que não existe no objeto?**
 
-O normal é retornar undefined. A não ser que eu deixe "setado" no caso de vir undefined. Vamos supor que queremos extrair o atributo "sobrenome" (não existe) e o atributo "bemHumorada" (não existe mas vou setar).
+O normal é retornar ```undefined```. A não ser que eu deixe "setado" no caso de vir ```undefined```. Vamos supor que queremos extrair o atributo "sobrenome" (não existe) e o atributo "bemHumorada" (não existe mas vou setar).
 
 ```javascript
 const { sobrenome, bemHumorada = true } = pessoa
@@ -179,6 +179,8 @@ Cuidado para acessar atributos que não existem. Tem que ter cuidado: é preciso
 
 Pegar elementos de dentro de um array.
 
+Eu uso os colchetes agora ```[ ]``` para fazer isso, porque o contexto é array.
+
 ## EXEMPLO 02 - **no âmbito do array.**
 
 Criei uma lista com um único elemento "a" que vai receber o valor 10 dentro da lista. 
@@ -189,16 +191,20 @@ console.log(a)              // > 10
 ```
 Aqui estou atribuindo valores ao meu array. 
 ```javascript
-const [n1, , n3, , n5, n6=10] = [10, 7, 9, 8]]
+const [n1, , n3, , n5, n6=10] = [10, 7, 9, 8]  // Presta atenção nessa linha, para onde vai o 7 e 8?
 
 console.log(n1, n3, n5, n6)     // > 10 9 undefined 0
 ```
-Veja que não existe n2, n4 - eu pulei eles. Seria assim n2=7 e n4=8. Então só sobram os valores 10, 9 para colocar ali dentro do meu array.
+Veja que não existe n2, n4 - eu pulei eles.
+
+Seria assim n2=7 e n4=8. 
+
+Então só sobram os valores 10, 9 para colocar ali dentro do meu array.
 
 Também posso fazer um array de arrays.
 
 ```javascript
-const [, [, nota]] = [[, 8, 8], [9, 6, 8]]
+const [, [, nota]] = [[, 8, 8], [9, 6, 8]]   // Atenção nessa linha
 
 console.log(nota)         // > 6
 ```
@@ -206,15 +212,19 @@ console.log(nota)         // > 6
 ---
 # 6. Operadores: Destructuring #03 - Função(destructuring-objeto)
 
-Vou criar uma função rand() que vai me retornar um número aleatório.
+Vou criar uma função ```rand()``` que vai me retornar um número aleatório.
 
 ```javascript
 function rand( { min = 0, max = 1000} ) 
 ```
 
-Eu passei como parâmetro um objeto? Não.
+Eu passei como parâmetro um objeto? **Não**.
 
-Significa que eu passei como parâmetro da função rand, um operador destructuring que vai dar como parâmetro dois valores, 0 e 100, para a minha função. Assim, não preciso usar a notação ```rand.min``` ou ```rand.max``` pra acessar esses valores no interior da minha função.
+Parece. Mas não passei como parâmetro um objeto: **passei um operador destructuring como parâmetro.**
+
+Em resumo.
+
+Significa que eu passei como parâmetro da função ```rand()```, um operador destructuring que vai dar como parâmetro real dois valores, 0 e 100, para a minha função. Assim, não preciso usar a notação ```rand.min``` ou ```rand.max``` pra acessar esses valores no interior da minha função.
 
 Continuando.
 
@@ -231,7 +241,9 @@ console.log(rand(obj))          // > 43 *randômico
 
 No exemplo acima, eu desestruturei os valores 0 e 100 para poder usar no interior da minha função. Eles são o min e o max. Dentro da função, usei apenas min e max e fiz o algoritmo.
 
-Depois, eu criei um objeto (objetos tem chaves {}) com atributos max e min. Então quando eu chamo a função rand com este objeto (rand(obj)), eu uso os atributos do obj como parâmetros da minha função rand.
+Depois, eu criei um objeto (objetos tem chaves ```{ }```) com **atributos** ```max``` e ```min```. Então quando eu chamo a função rand com este objeto (```rand(obj)```), **eu uso os atributos do obj como parâmetros da minha função rand```.
+
+Leia o parágrafo acima de novo.
 
 ---
 # 7. Operadores: Destructuring #04 - Função(destructuring-array)
