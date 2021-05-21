@@ -444,3 +444,21 @@ No código acima, lemos o ```imprimirResultado()```, na antepenúltima linha, da
 imprimirResultado()``` recebe três parâmetros: ```3, 4, function (x, y)```. O terceiro parâmetro é uma função que pega os dois parâmetros anteriores e retorna a subtração deles. Neste caso, é  -1.
 
 Uma função como parâemtro de outra função é muito utilizado em JS.
+
+## Função Anônima com duas variáveis e uma função de parâmetro (arrow function)
+
+Mesma coisa que o anterior mas no lugar de subtrair, vou multiplicar. Outra diferença é que agora vou usar uma arrow function como exemplo.
+
+```javascript
+const imprimirResultado = function (a, b, operacao = soma) {
+    console.log(operacao(a, b))
+}
+
+imprimirResultado(3, 4, function (x, y) {           // > -1
+    return x - y
+})  // <- parênteses fechado aqui
+
+// Usando arrow function abaixo:
+imprimirResultado(3, 4, (x, y) => x * y)            // > 12
+```
+No código acima, na última linha, temos uma arrow function como terceiro parâmetro. Neste caso, é verdadeiramente anônimo.
