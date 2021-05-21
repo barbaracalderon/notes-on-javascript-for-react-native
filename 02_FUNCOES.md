@@ -400,7 +400,7 @@ const soma = function (x, y) {
 }
 ```
 
-No código acima, lemos da seguinte forma: "a função anônima ```function``` recebe como parâmetros ```x``` e ```y```, retornando a soma dos parâmetros, e sendo guardada na variável ```soma```.
+No código acima, lemos da seguinte forma: *a função anônima ```function``` recebe como parâmetros ```x``` e ```y```, retornando a soma dos parâmetros, e sendo guardada na variável ```soma```.*
 
 
 ## Função Anônima com três variáveis de parâmetros
@@ -419,7 +419,7 @@ const imprimirResultado = function (a, b, operacao = soma) {
 imprimirResultado(3, 4)                 // > 7
 ```
 
-No código acima, lemos da seguinte forma: "a função anônima ```function``` recebe três parâmetros, ```a```, ```b```, ```operacao```. Caso eu não diga quem é a ```operacao```, assumir que é a variável ```soma```, que por sua vez guarda a função anônima da primeira linha. Eu não indiquei quem é ```operacao```, por isso vai assumir que se trata da variável ```soma```. Assim, faça o ```console.log``` executar e mostrar a operação (no nosso caso, ```soma```, porque não definimos). Executando, ele vai para a variável ```soma``` e executa a função anônima, retornando a soma de 3 e 4. O resultado é 7.
+No código acima, lemos da seguinte forma: *a função anônima ```function``` recebe três parâmetros, ```a```, ```b```, ```operacao```. Caso eu não diga quem é a ```operacao```, assumir que é a variável ```soma```, que por sua vez guarda a função anônima da primeira linha. Eu não indiquei quem é ```operacao```, por isso vai assumir que se trata da variável ```soma```. Assim, faça o ```console.log``` executar e mostrar a operação (no nosso caso, ```soma```, porque não definimos). Executando, ele vai para a variável ```soma``` e executa a função anônima, retornando a soma de 3 e 4. O resultado é 7.*
 
 ## Função Anônima com duas variáveis e uma função de parâmetro
 
@@ -440,8 +440,7 @@ imprimirResultado(3, 4, function (x, y) {           // > -1
     return x - y
 })  // <- parênteses fechado aqui
 ```
-No código acima, lemos o ```imprimirResultado()```, na antepenúltima linha, da seguinte forma: "A função ```
-imprimirResultado()``` recebe três parâmetros: ```3, 4, function (x, y)```. O terceiro parâmetro é uma função que pega os dois parâmetros anteriores e retorna a subtração deles. Neste caso, é  -1.
+No código acima, lemos o ```imprimirResultado()```, na antepenúltima linha, da seguinte forma: *A função ```imprimirResultado()``` recebe três parâmetros: ```3, 4, function (x, y)```. O terceiro parâmetro é uma função que pega os dois parâmetros anteriores e retorna a subtração deles. Neste caso, é  -1.*
 
 Uma função como parâemtro de outra função é muito utilizado em JS.
 
@@ -490,4 +489,4 @@ const pessoa = {
 
 pessoa.falar()                      // > Olá!
 ```
-Functiona do mesmo jeito.
+Funciona do mesmo jeito.
