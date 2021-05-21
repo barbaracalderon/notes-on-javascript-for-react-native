@@ -381,3 +381,23 @@ Viu?
 Não consigo amarrar ao ```this``` um objeto: o ```bind``` não funciona no contexto de uma arrow function. O ```this``` de uma arrow function continua apontando para o contexto em que foi criado: ```module.exports```.
 
 Essa é uma das vantagens da arrow functions: o ```this``` não se altera, ele é determinístico. Uma vez criado, é isso aí, não muda.
+
+# 14. Funções Anônimas 
+
+É um conceito que deve ser bem aprendido porque em JS as funções anônimas são bem recorrentes, muito utilizadas.
+
+A gente consegue criar funções com nommes e funções sem nome (anônimas). 
+
+Podemos criar uma função (anônima ou não) e guardá-la em uma variável. Podemos também criar uma função com nome e passar como parâmetro uma função anônima (sem nome). As duas situações são possíveis e recorrentes em JS.
+
+## Função Anônima
+
+Vamos à criação de uma função anônima.
+
+```javascript
+const soma = function (x, y) {
+    return x + y
+}
+```
+
+No código acima, lemos da seguinte forma: "a função anônima ```function``` recebe como parâmetros ```x``` e ```y```, retornando a soma dos parâmetros, e sendo guardada na variável ```soma```.
