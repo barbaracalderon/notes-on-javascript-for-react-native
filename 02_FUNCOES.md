@@ -490,3 +490,5 @@ const pessoa = {
 pessoa.falar()                      // > Olá!
 ```
 Funciona do mesmo jeito.
+
+Este documento foi finalizado aqui. 
