@@ -291,9 +291,9 @@ Veja que na última linha, eu coloquei como parâmetro o ```global``` - no conte
 
 Resumindo.
 
-Essa função que eu criei, ```comparaComThis```, me mostra se o ```this``` da função se refere ao parâmetro (e eu que escolho esse parâmetro): ```true``` ou ```false``` como resposta.
+Essa função que eu criei, ```comparaComThis()```, me mostra se o ```this``` da função se refere ao parâmetro (e eu que escolho esse parâmetro): ```true``` ou ```false``` como resposta.
 
-**ATENÇÃO**```
+**ATENÇÃO!**
 
 É por este motivo que se deve ter muito cuidado em chamar o ```this``` no escopo de uma função e determinar um atributo para esse ```this``` porque, na verdade, **você tá mexendo no this do contexto global**. Muitos erros vêm daqui.
 
@@ -323,7 +323,7 @@ Na última linha, é ```true``` que o ```this``` se refere ao objeto. Sim, porqu
 
 Será que esse ```bind``` funciona nas arrow functions? Será que eu consigo mudar o ```this``` de uma arrow function? Na próxima seção vamos ver (a resposta é não), mas primeiro uma coisinha sobre contexto nas arrow functions.
 
-Vimos anteriormente, que pela natureza da arrow function, **o ```this``` sempre se refere ao contexto no qual a função foi criada**. No caso de criarmos uma arrow function **dentro do ambiente node**, esse contexto **não é global**, ele é o contexto do **módulo**, pois todo arquivo js criado é um módulo dentro do node. O contexto do módulo é o ```module.exports```.
+Vimos anteriormente que, pela natureza da arrow function, **o ```this``` sempre se refere ao contexto no qual a função foi criada**. No caso de criarmos uma arrow function **dentro do ambiente node**, esse contexto **não é global**, ele é o contexto do **módulo**, pois todo arquivo js criado é um módulo dentro do node. O contexto do módulo é o ```module.exports``` (e não ```global```).
 
 O mais "global" que a arrow function consegue chegar é o seu próprio módulo: ele não tem a visão global do todo. 
 
@@ -332,18 +332,6 @@ Então, quando crio uma arrow function dentro do ambiente node, ele aponta para 
 Veja.
 
 ```javascript
-let comparaComThis = function (param) { 
-    console.log(this === param)
-}
-
-comparaComThis(global)                   // > true
-
-const obj = {}                           // criei o objeto 'obj'
-comparaComThis = comparaComThis.bind(obj) // Aqui o bind!
-
-comparaComThis(global)                   // > false
-comparaComThis(obj)                      // > true
-
 // Arrow Function abaixo:
 let comparaComThisArrow = param => console.log(this === param)
 
@@ -358,11 +346,19 @@ Na última linha, vemos que o ```this``` da arrow function aponta para o context
 
 Agora vamos falar do ```bind```.
 
-A pergunta é: **será que eu consigo mudar o ```this``` de uma arrow function usando o ```bind```?**
+A pergunta de um milhão de dólares é:
+
+**SERÁ QUE EU CONSIGO MUDAR O ```this``` DE UMA ARROW FUNCTION USANDO O ```bind```?**
+
+...
 
 **NÃO**.
 
-A resposta é **não**. O ```this``` de uma arrow function nunca vai mudar. A força de uma arrow function é maior que a força do ```bind```.
+...
+
+A resposta é **não**. 
+
+O ```this``` de uma arrow function nunca vai mudar. **A força de uma arrow function é maior que a força do ```bind```.**
 
 ```javascript
 // Arrow function abaixo:
@@ -379,6 +375,8 @@ comparaComThisArrow(module.exports)     // > true
 ```
 
 Não rolou.
+
+Viu?
 
 Não consigo amarrar ao ```this``` um objeto: o ```bind``` não funciona no contexto de uma arrow function. O ```this``` de uma arrow function continua apontando para o contexto em que foi criado: ```module.exports```.
 
