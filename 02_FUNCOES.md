@@ -297,3 +297,25 @@ Essa função que eu criei, ```comparaComThis```, me mostra se o ```this``` da f
 
 É por este motivo que se deve ter muito cuidado em chamar o ```this``` no escopo de uma função e determinar um atributo para esse ```this``` porque, na verdade, **você tá mexendo no this do contexto global**. Muitos erros vêm daqui.
 
+## THIS no contexto do Objeto
+
+Vamos olhar o mesmo código de cima, mas agora amarrando ao ```this``` um objeto qualquer, por meio do ```bind```. 
+
+```javascript
+let comparaComThis = function (param) { 
+    console.log(this === param)
+}
+
+comparaComThis(global)          // > true
+
+const obj = {}                  // criei o objeto 'obj'
+comparaComThis = comparaComThis.bind(obj)   // Aqui o bind!
+
+comparaComThis(global)          // > false
+comparaComThis(obj)             // > true
+```
+
+Na penúltima linha, vemos que o ```this``` não se refere mais ao contexto global (apontada pelo parâmetro node "global") - ele mudou: agora o ```this``` se refere ao objeto. **Por isso o resultado é ```false```** nessa segunda leitura.
+
+Na última linha, é ```true``` que o ```this``` se refere ao objeto. Sim, porque o objeto foi amarrado ao ```this``` por meio do ```bind```. Por isso retorna verdadeiro.
+
