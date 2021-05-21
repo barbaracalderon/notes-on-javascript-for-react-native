@@ -136,4 +136,44 @@ Na última linha, o ```console``` vai mostrar o resultado da execução da funç
 
 Assim funcionam as classes em JS.
 
+# Herança de Classe em JavaScript
+
+Primeiro, todo o código com as três classes (avô, pai e filho) e o teste, para mostrar o que contém no objeto filho, e depois explicação detalhada por partes.
+
+Tente ver o seguinte código com calma.
+
+Na sequência, tem explicação.
+
+```javascript
+// Classe Avô
+class Avo {
+    constructor(sobrenome) {
+        this.sobrenome = sobrenome
+    }
+}
+
+// Classe Pai (Herança de Avô)
+class Pai extends Avo {
+    constructor(sobrenome, profissao = 'Professor') {
+        super(sobrenome)
+        this.profissao = profissao
+    }
+}
+
+// Classe Filho (Herança de Pai)
+class Filho extends Pai {
+    constructor() {
+        super('Silva')
+    }
+}
+
+// Teste: criação do objeto Filho
+const filho = new Filho
+console.log(filho)  // > Filho { sobrenome: 'Silva', profissao: 'Professor' }
+
+
+```
+
+
+
 *Continua*.
