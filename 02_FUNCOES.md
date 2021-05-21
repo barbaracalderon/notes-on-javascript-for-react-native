@@ -13,21 +13,21 @@
 ---
 # 8. "This" pode variar
 
-O THIS é uma forma de referenciar o objeto atual da execução.
+O ```this``` é uma forma de referenciar o objeto **atual da execução**.
 
-É um paradigma comum na orientação a objetos: uma classe é um "molde" a partir do qual os objetos são criados. Objetos, por sua vez, possuem características (atributos) e ações próprias (métodos).
+É um paradigma comum na orientação a objetos: uma classe é um "molde" a partir do qual os objetos são criados. Objetos, por sua vez, possuem características (atributos) e ações próprias (funções).
 
-Em JavaScript, o THIS **não se refere sempre ao objeto**. Ele se refere ao objeto atual da execução, esta execução ocorre dentro de um **contexto**.
+Em JavaScript, o ```this``` **não se refere sempre ao objeto**. Ele se refere **ao objeto atual da execução** - e esta execução ocorre dentro de um **contexto**.
 
-Dependendo de como você chama o THIS, ele pode variar. 
+Dependendo de como você chama o ```this```, **ele pode variar**. 
 
-Agora... **se você utilizar uma arrow function, o THIS nunca varia**. Ele é definido no momento de criação da função.
+Agora... **se você utilizar uma arrow function, o ```this``` nunca varia**. Ele é definido no momento de criação da função.
 
-Por exemplo, se a função foi criada dentro de um contexto global, o THIS se torna a janela do software.
+Por exemplo. se a função foi criada dentro de um contexto global, o ```this``` se torna a janela do software.
 
 ## Contexto
 
-Se você não usa arrow functions, então o contexto é de mega importância porque o THIS varia com ele.
+Se você **não** usa arrow functions, então o **contexto é de mega importância** porque o ```this``` **varia com esse contexto**.
 
 ---
 # 9. "This" e a Função Bind #01
@@ -45,7 +45,7 @@ const pessoa = {
 pessoa.falar()          // > Bom dia!
 
 ```
-Acima temos um objeto chamado pessoa com um atributo ("saudacao") e o método ```falar()```. Esse método, ou função, chama o console para mostrar a saudação de THIS. **Neste caso, THIS é o objeto pessoa.**
+Acima temos um objeto chamado pessoa com um atributo ```saudacao``` e a função ```falar()```. Esse método, ou função, chama o console para mostrar a saudação de ```this```. **Neste caso, ```this``` é o objeto pessoa.**
 
 Abaixo ocorre um problema.
 
@@ -63,13 +63,15 @@ falar()               // > undefined
 ```
 Deu um problema!
 
-Houve um conflito entre dois paradigmas: OOP e Functional. 
+Houve um conflito entre dois paradigmas: Programação Orientada a Objetos (OOP, do inglês) e a Programação Funcional (functional, do inglês). 
 
-Apenas chamar a função ```falar()``` (paradigma funcional), **sem atrelar essa função a um objeto**, dá o resultado ```undefined``` porque, **na origem de criação**, o falar está atrelado a um objeto (paradigma OO).
+Apenas chamar a função ```falar()``` (paradigma funcional), **sem atrelar essa função a um objeto**, dá o resultado ```undefined``` porque, **na origem de criação**, o falar está atrelado a um objeto (paradigma OOP).
+
+Leia o parágrafo acima de novo.
 
 Como resolver? 
 
-Neste caso, podemos usar o BIND.
+Neste caso, podemos usar o ```bind```.
 
 Veja abaixo.
 
@@ -85,11 +87,11 @@ pessoa.falar()
 const falar = pessoa.falar
 falar()                 // > undefined
 
-const falarDePessoa = pessoa.falar.bind(pessoa)
+const falarDePessoa = pessoa.falar.bind(pessoa)     // Bind aqui!
 falarDePessoa()         // > Bom dia!
 
 ```
-Acima, o BIND disse que o objeto ao qual o THIS se refere é **pessoa**. Ele amarrou esta noção ao colocar pessoa como **PARÂMETRO DE BIND**.
+Acima, o ```bind``` disse que **o objeto ao qual o ```this``` se refere é *pessoa***. Ele amarrou esta noção ao colocar pessoa como **PARÂMETRO DE BIND**.
 
 Ele realmente "amarra".
 
@@ -98,17 +100,19 @@ Ele realmente "amarra".
 ---
 # 10. "This" e a Função Bind #02
 
-Aqui vamos conseguir: **armazenar o THIS em uma constante, no momento que o THIS apontar para o objeto que de fato a gente quer referenciar**. 
+Aqui vamos conseguir: **armazenar o ```this``` em uma constante, no momento que o ```this``` apontar para o objeto que *de fato a gente quer referenciar***. 
 
-Depois que ele fica numa constante, moleza. Podemos usar essa constante para acessar o THIS quando a gente quiser.
+Depois que ele fica numa constante, moleza. Podemos usar essa constante para acessar o ```this``` quando a gente quiser.
 
-Abaixo, uma função chamada Pessoa que tem idade e uma outra função em si (```setInterval```). 
+Dá uma olhada no próximo código abaixo e volta aqui.
 
-Por sua vez, a função ```setInterval``` chama outra função ```function()```, que neste caso é vazia em nome mas que faz incremento da idade e aparece na tela. 
+Abaixo, uma função chamada ```Pessoa``` que tem atributo idade e uma outra função em si -```setInterval()```. 
 
-A função ```setInterval```, além de ter a ```function``` como parâmetro, tem também o intervalo 1000. Isso significa que, **ao ser criado o objeto Pessoa** (derivado da função classe Pessoa), **é disparada a função ```setInterval``` a cada 1000 milissegundos** (1 segundo) devido ao incremento.
+Por sua vez, a função ```setInterval()``` chama outra função ```function()```, que neste caso é **vazia em nome** mas que faz incremento da idade e aparece na tela. 
 
-Quem é o THIS neste caso?
+A função ```setInterval()```, além de ter a ```function()``` como parâmetro, tem também o intervalo 1000. Isso significa que, **ao ser criado o objeto Pessoa** (derivado da função classe Pessoa), **é disparada a função ```setInterval()``` a cada 1000 milissegundos** (1 segundo) devido ao incremento.
+
+Quem é o ```this``` neste caso?
 
 ```javascript
 function Pessoa() {
@@ -125,9 +129,9 @@ new Pessoa              // > NaN
                         // > Nan
                         // > ...
 ```
-Neste caso, o THIS é um NaN. 
+Neste caso, o ```this``` é um ```NaN```. 
 
-Quem está executando a função ```function()``` é um temporizador interno da ```setInterval``` - e não o objeto Pessoa. Por isso a "idade" sendo incrementada não é mostrada.
+Quem está executando a função ```function()``` é um temporizador interno da ```setInterval()``` - e **não o objeto Pessoa**. Por isso a "idade" sendo incrementada não é mostrada.
 
 Vamos consertar isso.
 
@@ -138,7 +142,7 @@ function Pessoa() {
     setInterval(function() {
         this.idade++
         console.log(this.idade)
-    }.bind(this), 1000)
+    }.bind(this), 1000)         // Bind aqui!
 }
 
 new Pessoa              // > 1
@@ -148,11 +152,13 @@ new Pessoa              // > 1
 ```
 Agora sim mostra a idade sendo incrementada em 1 unidade. 
 
-A idade é atributo de pessoa e o BIND agora faz o THIS apontar para o objeto pessoa. 
+A **idade é atributo de pessoa** e o ```bind``` agora faz o ```this``` **apontar para o objeto pessoa**. 
 
 Ou.
 
 Ainda podemos criar um outro artifício usando uma variável qualquer - que neste caso vamos chamar de ```self```. 
+
+*(Esse é um "truque" usado por muitos desenvolvedores.)*
 
 Veja.
 
@@ -160,7 +166,7 @@ Veja.
 function Pessoa() {
     this.idade = 0
     
-    const self = this               // artifício "self"
+    const self = this               // artifício "self" -> amarrei o this ao contexto do Objeto Pessoa
                                     // antes de setInterval
     setInterval(function() {
         self.idade++
@@ -173,9 +179,9 @@ new Pessoa              // > 1
                         // > 3
                         // > ...
 ```
-Veja que a criação da variável ```self``` foi, propositalmente, feita ANTES da função ```setInterval``` justamente para pegar o THIS da função pessoa. 
+Veja que a criação da variável ```self``` foi, propositalmente, feita ANTES da função ```setInterval()``` justamente **para pegar o ```this``` da função pessoa**. 
 
-O this dentro da função ```setInterval``` se refere ao contexto de ```setInterval``` - e não mais ao contexto de Pessoa.
+O ```this``` **dentro da função ```setInterval()``` se refere ao contexto de ```setInterval()```** - e não mais ao contexto de Pessoa.
 
 Esse é um truque comum que as pessoas utilizam para contornar o problema.
 
@@ -188,7 +194,7 @@ Em 2015, foi introduzido a nova função.
 
 Dois objetivos: 
 - ser mais curta;
-- ter um THIS associado ao contexto em que foi escrita.
+- ter um ```this``` associado ao contexto em que foi escrita.
 
 Veja uma função escrita de três formas diferentes.
 
@@ -200,21 +206,21 @@ let dobro = function (a) {
 
 //FORMA 02
 dobro = (a) => {        // arrow function 
-    return 2 * a        //com parâmetro (a)
+    return 2 * a        // com parâmetro (a)
 }
 
 //FORMA 03
 dobro = a => 2 * a      // arrow function 
                         // com "return" implícito"
 ```
-Quando você tira as chaves ```{ }``` o retorno é implícito. Isto ocorre na terceira função.
+Quando você tira as chaves ```{ }``` o **retorno é implícito**. Isto ocorre na terceira função.
 
 As arrow functions te forçam a usar funções bem específicas.
 
 ---
 # 12. Funções Arrow #02 (=>)
 
-O THIS dentro de uma arrow function é fixo. **Ele se referencia ao contexto maior de onde está**.
+O ```this``` dentro de uma arrow function é ~**fixo**. **Ele se referencia ao contexto maior de onde está**.
 
 Vamos reescrever o seguinte código para uma arrow function:
 
@@ -240,8 +246,8 @@ O mesmo código de cima traduzido para uma arrow function:
 function Pessoa() {
     this.idade = 0
 
-    setInterval( () => {
-        this.idade++
+    setInterval( () => {        // Repare na típica setinha =>
+        this.idade++            // Esse this é global, contexto Pessoa(), não setInterval()
         console.log(this.idade)
     }, 1000 )
 }
@@ -252,9 +258,9 @@ new Pessoa              // > 1
                         // > ...
 ```
 
-Veja que o THIS agora se refere ao objeto Pessoa criado  - e não mais ao temporizador interno da função ```setInterval```.
+Veja que o ```this``` agora se refere ao objeto Pessoa criado  - e não mais ao temporizador interno da função ```setInterval()```.
 
- Isso acontece porque o ```setInterval``` foi criado dentro do contexto função Pessoa. O THIS responde a esse contexto.
+Isso acontece porque o ```setInterval()``` foi criado dentro do contexto função Pessoa. O ```this``` responde a esse contexto numa arrow function.
 
 ---
 # 13. Funções Arrow #03 (=>)
