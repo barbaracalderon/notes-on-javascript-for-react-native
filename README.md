@@ -13,7 +13,7 @@ ARQUIVOS | CONTEÚDOS
 :-------- | :----------
 01_FUNDAMENTOS.md | O básico de ```var, let, const```; Função vs. Objeto; Par Nome/Valor; Operador **Destructuring**
 02_FUNCOES.md | "This" pode variar; "This" e a Função Bind; **Funções Arrow**; Funções Anônimas; etc.
-03_CLASSES.md | Classes
+03_CLASSES.md | Classes; Herança de classe
 Continua... | ...
 
 
