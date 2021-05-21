@@ -138,6 +138,8 @@ Assim funcionam as classes em JS.
 
 # Herança de Classe em JavaScript
 
+O exemplo aqui da Herança de Classe vai ser feita com a ideia de filho, pai e avô.
+
 Primeiro, todo o código com as três classes (avô, pai e filho) e o teste, para mostrar o que contém no objeto filho, e depois explicação detalhada por partes.
 
 Tente ver o seguinte código com calma.
@@ -170,9 +172,51 @@ class Filho extends Pai {
 // Teste: criação do objeto Filho
 const filho = new Filho
 console.log(filho)  // > Filho { sobrenome: 'Silva', profissao: 'Professor' }
-
-
 ```
+
+## Classe Avô
+
+Começando com a classe avô, foco nela.
+
+```javascript
+// Classe Avô
+class Avo {
+    constructor(sobrenome) {
+        this.sobrenome = sobrenome
+    }
+}
+```
+Na classe avô, iniciamos o ```constructor``` com um parâmetro, sobrenome. Este parâmetro será recebido pelo atributo ```this.sobrenome```. Não tem nada mais.
+
+## Classe Pai
+
+Agora a classe Pai, foco nela.
+
+```javascript
+// Classe Pai (Herança de Avô)
+class Pai extends Avo {
+    constructor(sobrenome, profissao = 'Professor') {
+        super(sobrenome)
+        this.profissao = profissao
+    }
+}
+```
+A classe Pai é herança da classe Avô - isso significa que a classe Pai tem tudo que a classe avô tem e mais um pouco. Ou seja, a classe Pai **_extende_** a classe Avô. Por isso o ```extends``` ali, é a aplicação direta da Herança.
+
+Além disso, a classe pai tem no seu ```constructor``` dois parâmetros: sobrenome e profissão. Caso o usuário **não** forneça o parâmetro profissão, automaticamente assume-se que a profissão então é de Professor.
+
+Agora veja que dentro do ```constructor``` ainda existe o ```super(sobrenome)```. Ele é responsável por invocar a classe Avô e passar ```sobrenome``` como parâmetro da classe Avô.
+
+Finalmente, a classe Pai tem como atributo o ```this.profissao``` que recebe como valor, o segundo parâmetro passado nesta classe (caso exista, caso não então automaticamente é assumida a string Professor no lugar). 
+
+*PS: o atributo ```this.profissao``` só existe na classe Pai.*
+
+Finalmente, vamos à classe Filho.
+
+## Classe Filho
+
+
+
 
 
 
