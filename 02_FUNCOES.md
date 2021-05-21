@@ -401,3 +401,22 @@ const soma = function (x, y) {
 ```
 
 No código acima, lemos da seguinte forma: "a função anônima ```function``` recebe como parâmetros ```x``` e ```y```, retornando a soma dos parâmetros, e sendo guardada na variável ```soma```.
+
+
+## Função Anônima com três variáveis de parâmetros
+
+Outro exemplo.
+
+```javascript
+const soma = function (x, y) {
+    return x + y
+}
+
+const imprimirResultado = function (a, b, operacao = soma) {
+    console.log(operacao(a, b))
+}
+
+imprimirResultado(3, 4)                 // > 7
+```
+
+No código acima, lemos da seguinte forma: "a função anônima ```function``` recebe três parâmetros, ```a```, ```b```, ```operacao```. Caso eu não diga quem é a ```operacao```, assumir que é a variável ```soma```, que por sua vez guarda a função anônima da primeira linha. Eu não indiquei quem é ```operacao```, por isso vai assumir que se trata da variável ```soma```. Assim, faça o ```console.log``` executar e mostrar a operação (no nosso caso, ```soma```, porque não definimos). Executando, ele vai para a variável ```soma``` e executa a função anônima, retornando a soma de 3 e 4. O resultado é 7.
