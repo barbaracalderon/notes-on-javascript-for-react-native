@@ -55,7 +55,11 @@ console.log(contas.sumario())           // > 4780
 
 Resumidamente sobre o código acima: foram criadas duas classes ```Lancamento``` (com atributos apenas) e ```CicloFinanceiro``` (com atributos e duas funções). 
 
-Primeiro vamos ver a classe ```Lancamentos```. Segue abaixo.
+## Classe Lancamentos
+
+Primeiro vamos ver a classe ```Lancamentos```.
+
+Segue abaixo.
 
 ```javascript
 // Primeira classe
@@ -68,6 +72,8 @@ class Lancamento {
 ```
 
 Como você pode ver, essa classe utiliza uma função ```constructor``` por baixo dos panos: ela constroi o objeto com um nome genérico e um valor que, caso não seja indicado no parâmetro, inicia com zero. 
+
+## Classe CicloFinanceiro
 
 Agora vamos ver a classe ```CicloFinanceiro```.
 
@@ -96,11 +102,13 @@ class CicloFinanceiro {
 
 Esta segunda classe também utiliza a função ```constructor``` por baixo dos panos para inicializar o objeto com dois parâmetros, ```mes``` e ```ano```. Além disso, tem um atributo interno chamado ```this.lancamentos``` que comporta um array vazio.
 
-Além desses atributos, também conta com duas funções: ```addLancamentos()``` e ```sumario()```.
+Além desses atributos, também conta com **duas funções**: ```addLancamentos()``` e ```sumario()```.
 
 Em ```addLancamentos()``` veja que seus parâmetros são quantos lancamentos forem necessários. Isso é o que diz ```(...lancamentos)```. Para cada lancamento que você for adicionar, adicione este lancamento no atributo array vazio ```this.lancamentos```. 
 
 Em ```sumario()``` não existe nada passando como parâmetro. No entanto, essa função começa com uma variável ```valorConsolidado``` que inicia com zero. Depois, para cada um dos lancamentos adicionados no atributo array (inicialmente) vazio ```this.lancamentos```, vá incrementando a variável ```valorConsolidado``` com o valor do lancamento. Assim, ao final, retorne o valor da variável ```valorConsolidado```, que contém o total dos valores de todos os lancamentos indicados.
+
+## Fazendo o teste
 
 Finalmente, a última parte para entender é o teste em si usando essas duas classes (com seus atributos e suas funções). 
 
