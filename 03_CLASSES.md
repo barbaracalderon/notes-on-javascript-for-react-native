@@ -205,19 +205,43 @@ A classe Pai é herança da classe Avô - isso significa que a classe Pai tem tu
 
 Além disso, a classe pai tem no seu ```constructor``` dois parâmetros: sobrenome e profissão. Caso o usuário **não** forneça o parâmetro profissão, automaticamente assume-se que a profissão então é de Professor.
 
-Agora veja que dentro do ```constructor``` ainda existe o ```super(sobrenome)```. Ele é responsável por invocar a classe Avô e passar ```sobrenome``` como parâmetro da classe Avô.
+Agora veja que dentro do ```constructor``` ainda existe o ```super(sobrenome)```. Ele é responsável por invocar a classe Avô e passar ```sobrenome``` como parâmetro da classe Avô. Repare que tudo isso na construção da classe Pai, na inicialização do objeto da classe Pai.
 
-Finalmente, a classe Pai tem como atributo o ```this.profissao``` que recebe como valor, o segundo parâmetro passado nesta classe (caso exista, caso não então automaticamente é assumida a string Professor no lugar). 
+Finalmente, a classe Pai tem como atributo o ```this.profissao``` que recebe como valor... o segundo parâmetro passado nesta classe (caso exista, caso não então automaticamente é assumida a string Professor no lugar). 
 
 *PS: o atributo ```this.profissao``` só existe na classe Pai.*
 
-Finalmente, vamos à classe Filho.
 
 ## Classe Filho
 
+Finalmente, vamos à classe Filho.
 
 
+```javascript
+// Classe Filho (Herança de Pai)
+class Filho extends Pai {
+    constructor() {
+        super('Silva')
+    }
+}
+```
 
+A classe Filho é uma extensão da classe Pai. O seu ```constructor()``` não tem nada como parâmetro - a classe Filho não tem nada que é apenas seu, neste nosso exemplo.
 
+Mas ele tem o ```super()``` que invoca a classe Pai e passa como parâmetro uma string, neste caso o sobrenome Silva. Sabemos que é o sobrenome porque ocupa a primeira posição (classe Pai pode receber até dois parâmetros - sobrenome e profissão). A segunda posição seria a profissão, mas como não passamos nada como segundo parâmetro... então a classe Pai assume que a profissão é Professor.
 
-*Continua*.
+## Teste: criação do objeto filho
+
+Vamos ao teste de criar um objeto filho e ver o que o ```console.log()``` nos mostra.
+
+```javascript
+// Teste: criação do objeto Filho
+const filho = new Filho
+console.log(filho)  // > Filho { sobrenome: 'Silva', profissao: 'Professor' }
+```
+
+No caso acima, nós criamos o objeto ```filho``` instanciando a classe Filho (```new Filho```). Veja que não passamos nada como parâmetro. Quando mostramos o ```console.log(filho)```, ele nos mostra que o objeto filho foi criado com o sobrenome Silva e a profissão Professor.
+
+Consegue identificar de onde vem o ```Silva``` e o ```Professor``` deste objeto? A resposta está nos códigos.
+
+Assunto de classes por aqui é encerrado.
