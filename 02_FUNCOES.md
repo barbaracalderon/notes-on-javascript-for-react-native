@@ -265,4 +265,35 @@ Isso acontece porque o ```setInterval()``` foi criado dentro do contexto funçã
 ---
 # 13. Funções Arrow #03 (=>)
 
-*CONTINUA...*
+Pra entender o ```this``` no contexto de uma arrow function, preciso conhecer como ele se comporta em funções comuns.
+
+Vamos no comum, depois nas arrow functions.
+
+## THIS no contexto Global
+
+No código abaixo, que não é uma arrow function, eu vou comparar se o ```this``` aponta para o parâmetro da função que eu criei.
+
+O ```this``` se refere ao parâmetro da função que eu criei: sim ou não?
+
+```javascript
+let comparaComThis = function (param) { 
+    console.log(this === param)
+}
+
+comparaComThis(global)          // true
+```
+
+A resposta é sim.
+
+Veja que na última linha, eu coloquei como parâmetro o ```global``` - no contexto do Node.js se refere ao contexto que existe de maior; no contexto de um navegador, como o chrome, por exemplo, não existe o ```global``` mas existe o ```window```, que é o maior contexto possível. Se jogar a função ```comparaComThis(window)``` no navegador, vai dar ```true``` também.
+
+*PS: No node, o objeto global é chamado de Global, enquanto que no navegador Chrome, o objeto global é chamado de Window.*
+
+Resumindo.
+
+Essa função que eu criei, ```comparaComThis```, me mostra se o ```this``` da função se refere ao parâmetro (e eu que escolho esse parâmetro): ```true``` ou ```false``` como resposta.
+
+**ATENÇÃO**```
+
+É por este motivo que se deve ter muito cuidado em chamar o ```this``` no escopo de uma função e determinar um atributo para esse ```this``` porque, na verdade, **você tá mexendo no this do contexto global**. Muitos erros vêm daqui.
+
