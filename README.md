@@ -3,7 +3,7 @@
 
 *EM CONSTRUÇÃO.*
 
-Essas são as minhas anotações específicas sobre Javascript de um curso que estou fazendo sobre React Native. Como muitos sabem, para trabalhar com React Native, é necessário uma boa fundamentação em Javascript. Por isto esta revisão.
+Essas são as minhas anotações específicas sobre Javascript de um curso que estou fazendo sobre React Native, "React Native: Desenvolva APPs Nativas para Android e iOS", do Leonardo Moura.
 
 Útil como resumo e lembrete.
 
