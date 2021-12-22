@@ -58,6 +58,26 @@ aprovados.forEach(exibirAprovados)  // Exibe o elemento no console.log
 
 ## forEach #01
 
+Implementando nosso próprio forEach. Vamos chamar de forEach2.
+
+```javascript
+Array.prototype.forEach2 = function(callback) {
+    for (let i=0; i<this.length; i++) {
+        callback(this[i], i, this)
+    }
+}
+
+const aprovados = ['Agatha', 'Aldo', 'Daniel', 'Raquel']
+
+aprovados.forEach2(function(nome, indice) {
+    console.log(`${indice + 1}) ${nome}`)
+})
+
+// 1) Agatha
+// 2) Aldo
+// 3) Daniel
+// 4) Raquel
+```
 
 
 
