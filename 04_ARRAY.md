@@ -111,7 +111,26 @@ console.log(resultado)
 // ['R$33,00', 'R$36,00', 'R$39,00', 'R$42,00', 'R$45,00']
 ```
 
-## Map #02 -> transformar Array
+## Map #02 -> criando nossa própria função map
 
+Criando nosso próprio método Map2.
+
+```javascript
+Array.prototype.map2 = function(callback) {
+    const newArray = []
+    for (let i = 0; i < this.length; i++) {
+        newArray.push(callback(this[i], i, this))
+    }
+    return newArray
+}
+```
+
+## Filter #01 - 
+
+Serve para filtrar um array e obter um sub-array: normalmente, um array menor que o array original. Isso é percorrer um array com bastante propósito. 
+
+```javascript
+
+```
 
 *Continua*.
